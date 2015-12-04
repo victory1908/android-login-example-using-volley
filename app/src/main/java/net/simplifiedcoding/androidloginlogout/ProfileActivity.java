@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    //Textview to show currently logged in user
+    //TextView to show currently logged in user
     private TextView textView;
 
     @Override
@@ -42,13 +42,13 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
 
-                        //Getting out sharedpreferences
+                        //Getting out sharedPreferences
                         SharedPreferences preferences = getSharedPreferences(Config.SHARED_PREF_NAME,Context.MODE_PRIVATE);
                         //Getting editor
                         SharedPreferences.Editor editor = preferences.edit();
 
                         //Puting the value false for loggedin
-                        editor.putBoolean(Config.LOGGEDIN_SHARED_PREF, false);
+                        editor.putBoolean(Config.LOGGED_IN_SHARED_PREF, false);
 
                         //Putting blank value to email
                         editor.putString(Config.EMAIL_SHARED_PREF, "");

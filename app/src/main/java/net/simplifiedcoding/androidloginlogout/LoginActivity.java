@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
-import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -51,11 +50,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onResume() {
         super.onResume();
-        //In onresume fetching value from sharedpreference
+        //In onResume fetching value from sharedPreference
         SharedPreferences sharedPreferences = getSharedPreferences(Config.SHARED_PREF_NAME,Context.MODE_PRIVATE);
 
-        //Fetching the boolean value form sharedpreferences
-        loggedIn = sharedPreferences.getBoolean(Config.LOGGEDIN_SHARED_PREF, false);
+        //Fetching the boolean value form sharedPreferences
+        loggedIn = sharedPreferences.getBoolean(Config.LOGGED_IN_SHARED_PREF, false);
 
         //If we will get true
         if(loggedIn){
@@ -84,11 +83,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             SharedPreferences.Editor editor = sharedPreferences.edit();
 
                             //Adding values to editor
-                            editor.putBoolean(Config.LOGGEDIN_SHARED_PREF, true);
+                            editor.putBoolean(Config.LOGGED_IN_SHARED_PREF, true);
                             editor.putString(Config.EMAIL_SHARED_PREF, email);
 
                             //Saving values to editor
-                            editor.commit();
+                            editor.apply();
 
                             //Starting profile activity
                             Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
